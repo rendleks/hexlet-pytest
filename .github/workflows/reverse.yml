@@ -1,21 +1,18 @@
-# Name of workflow
-name: Reverce CI
+name: Python CI
 
-run-name: ${{ github.actor }} is testing out GitHub Actions 
-
-# Trigger the workflow on push
 on:
   - push
+  - pull_request
 
 jobs:
   build:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-      - run: echo "🖥️ The workflow is now ready to test your code on the runner."
-      
-      - name: Install project
-        run: make install
-        
-      - name: Execute tests
-        run: make test
+      - name: Install dependencies
+        run: |
+          pip install poetry
+          make install
+      - name: Run pytest
+        run: |
+          make test

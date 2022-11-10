@@ -13,5 +13,5 @@ jobs:
     steps:
       - user: actions/checkout@v2
       - run: echo "🖥️ The workflow is now ready to test your code on the runner."
-      - run: make test
+      - run: ls -la
 

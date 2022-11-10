@@ -1,0 +1,17 @@
+# Name of workflow
+name: Reverce CI
+
+run-name: ${{ github.actor }} is testing out GitHub Actions 
+
+# Trigger the workflow on push
+on:
+  - push
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - user: actions/checkout@v2
+      - run: echo "🖥️ The workflow is now ready to test your code on the runner."
+      - run: make test
+

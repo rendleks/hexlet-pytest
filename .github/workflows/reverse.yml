@@ -13,6 +13,7 @@ jobs:
         run: |
           pip install poetry
           make install
+      - name: Say-hello
           make say-hello
       - name: Run pytest
         run: |
